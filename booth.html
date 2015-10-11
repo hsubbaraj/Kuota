@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Create a Booth</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="css/styles.css" rel="stylesheet">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+	</head>
+	<body>
+<!--login modal-->
+<div id="booth_modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h1 class="text-center">Create a Booth</h1>
+      </div>
+      <div class="modal-body">
+          <form class="form col-md-12 center-block">
+            <div class="form-group">
+              <input type="text" name="org_name"class="form-control input-lg" value="" placeholder="Organization Name">
+            </div>
+            <div class="form-group">
+              <input type="text" name="event1"class="form-control input-lg" value="" placeholder="Event Name">
+            </div> 
+            <div class="form-group">
+              <input type="text" name="event_location"class="form-control input-lg" value="" placeholder="Event Address">
+            </div>  
+            <div class="form-group">
+              <input type="text" name="description"class="form-control input-lg" value="" placeholder="Short Description">
+            </div>
+            
+            <div class="form-group">
+              <button onclick="createBooth(this.form);" class="btn btn-primary btn-lg btn-block pressbtn">Create Booth</button>
+              <span class="pull-right"><a href="login.html">Login</a></span><span><a href="register.html">Need help?</a></span>
+            </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+          <div class="col-md-12">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+		  </div>	
+      </div>
+  </div>
+  </div>
+</div>
+	<!-- script references -->
+		
+		<script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts3.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbHPLX0KnaYSa4188aQyPG0Xb4S91K_aQ&signed_in=true&callback=initMap"
+        async defer></script>
+   <script type="text/javascript">
+      
+          //alert("success");
+  </script>
+	</body>
+</html>
