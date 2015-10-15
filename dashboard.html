@@ -159,7 +159,7 @@
             var queryB = new Parse.Query("Checks");
             queryB.equalTo("org", currentUser);
 
-            var query = Parse.Query.or(queryA, queryB);
+            var query = Parse.Query.and(queryA, queryB);
             query.find({
                 success: function(results) {
                    for (var i = 0; i < results.length; i++) { 
