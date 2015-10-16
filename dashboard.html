@@ -138,6 +138,7 @@
 
           Parse.initialize("AT6kQiqLbamQbbLDGX6GQSJ97WzoMZlaoK7WUBFE", "fegB9aRyHm6NdazycJLdhoaAguQcheeyIyrQKLkb");
           var currentUser = Parse.User.current();
+          console.log(currentUser.get("username"));
             if (currentUser) {
                 // do stuff with the user
                   //window.location.assign("dashboard.html");
@@ -154,13 +155,14 @@
            var Checks = Parse.Object.extend("Checks");
             var queryA = new Parse.Query(Checks);
 
+            // Search by organization first. Then figure out displaying by different 
             queryA.equalTo("event", "Cal Hacks");
 
             var queryB = new Parse.Query("Checks");
-            queryB.equalTo("org", currentUser);
+            //queryA.equalTo("org", currentUser);
 
-            var query = Parse.Query.and(queryA, queryB);
-            query.find({
+            //var query = Parse.Query.and(queryA, queryB);
+            queryA.find({
                 success: function(results) {
                    for (var i = 0; i < results.length; i++) { 
                        console.log(results[i]);
