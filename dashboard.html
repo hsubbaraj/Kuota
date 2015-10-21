@@ -58,7 +58,7 @@
             
             <div class="form-group">
               <button onclick="createBooth(this.form);" class="btn btn-primary btn-lg btn-block pressbtn">Create Booth</button>
-              <span class="pull-right"><a href="login.html">Login</a></span><span><a href="register.html">Need help?</a></span>
+              
             </div>
           </form>
       </div>
@@ -102,12 +102,14 @@
                 <thead>
                 <tr>
                   <th>Name</th>
+                  <th>Event</th>
                   <th>Email</th>
                   <th>Age</th>
                   <th>Phone</th>
                   <th>Github</th>
                   <th>Twitter</th>
                   <th>LinkedIn</th>
+
                 </tr>
               </thead>
             </table>
@@ -122,7 +124,7 @@
 </div><!--/.container-->
 
 <footer>
-  <p class="pull-right">©2014 Company</p>
+  <p class="pull-right">©2014 Kuota</p>
 </footer>
         
 	<!-- script references -->
@@ -155,13 +157,16 @@
            var Checks = Parse.Object.extend("Checks");
             var queryA = new Parse.Query(Checks);
 
-            // Search by organization first. Then figure out displaying by different 
-            queryA.equalTo("event", "Cal Hacks");
+            //ORDER OF QUERIES:
+           // queryA.equalTo("org", currentUser.get("username"));
+            //queryA.equalTo("event", "Cal Hacks");
 
             var queryB = new Parse.Query("Checks");
-            //queryA.equalTo("org", currentUser);
+            console.log(currentUser.get("username"));
+            queryA.equalTo("org", currentUser.get("username"));
+            queryA.descending("event");
 
-            //var query = Parse.Query.and(queryA, queryB);
+            //var query = Parse.Query.or(queryA, queryB);
             queryA.find({
                 success: function(results) {
                    for (var i = 0; i < results.length; i++) { 
@@ -170,6 +175,7 @@
                        console.log(object.get('github'));
                           
                        $('#results-table').append('<tr><td>' + object.get('name') + '</td>' +
+                        '<td>'+ object.get('event')    + '</td>'+
                         '<td>'+ object.get('email')    + '</td>'+
                         '<td>'+ object.get('age')      + '</td>' +
                         '<td>'+ object.get('phone')    + '</td>'+
