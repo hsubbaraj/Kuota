@@ -96,7 +96,10 @@ function testResults (form) {
 	user.set("password", uPassword);
 	user.set("email", uEmail);
 	user.set("org_name", uOrgName);
-
+	user.set("org_name", uOrgName);
+	user.set("org_name", uOrgName);
+	user.set("org_name", uOrgName);
+	user.set("org_name", uOrgName         )
 
 	user.signUp(null, {
 	success: function(user) {
